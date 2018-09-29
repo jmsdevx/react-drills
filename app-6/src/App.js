@@ -1,21 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import ToDo from './ToDo'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+  constructor(){
+    super();
+    this.state = {
+      input: '',
+      list: []
+    }
+  }
+
+  inputHandler(value){
+    this.setState({input: value})
+  }
+
+  addToList(){
+    this.state.list.push(this.state.input)
+    this.setState({input: ''})
+  }
+
+  render(){
+    return(
+      <div>
+
+      <input type="text" placeholder="What to do?" value={this.state.input} onChange={(event)=>this.inputHandler(event.target.value)} />
+
+      <button onClick={()=>this.addToList()}>Add To List</button>
+
+      <ToDo list={this.state.list} />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
