@@ -1,37 +1,16 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import Display from './Display'
 
 class App extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      array: ['hey','this','is', 'searching']
-    }
-  }
-  render() {
+  render(){
 
-    let displayArray = this.state.array.map((element,index)=>{
-      return (<div className="map" key={index}>
-
-        <h2 >{element}</h2>
-
+    return(
+      <div>
+      <Display />
       </div>
-        )
-    })
-
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>App 2</h2>
-        </div>
-          <div>{displayArray}</div>
-        
-      </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
